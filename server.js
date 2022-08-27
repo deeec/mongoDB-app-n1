@@ -3,9 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 const Thread = require("./models/Thread");
 
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
-app.set("PORT", process.env.PORT || 5000);
+app.get("/", express.static("public"));
 
 //mongoDBに接続
 mongoose.connect(process.env.MONGODB_URI ||
@@ -37,4 +37,4 @@ app.post("/api/v1/thread", async(req, res) => {
 
 
 
-app.listen(PORT, console.log("server runnning"));
+app.listen(process.env.PORT || 5000, console.log("server runnning"));
