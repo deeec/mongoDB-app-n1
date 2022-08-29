@@ -5,7 +5,7 @@ const Thread = require("./models/Thread");
 
 //app.use(express.static("public"));
 
-app.get("/", express.static("public"));//エントリポイントの設定
+app.get("/", express.static(path.join(__dirname,"public")));//エントリポイントの設定
 
 //mongoDBに接続
 mongoose.connect(process.env.MONGODB_URI ||
