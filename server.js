@@ -5,12 +5,11 @@ const Thread = require("./models/Thread");
 
 //app.use(express.static("public"));
 
-app.get("/", express.static("public"));
+app.get("/", express.static("public"));//エントリポイントの設定
 
 //mongoDBに接続
 mongoose.connect(process.env.MONGODB_URI ||
     "mongodb+srv://d-hori18:d-hori@cluster0.4v0ab4l.mongodb.net/?retryWrites=true&w=majority"
-    ,{ useNewUrlParser: true}
 ).
 then(() => console.log("db connected!"))
 .catch((err) => console.log(err));
