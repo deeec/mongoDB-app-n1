@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require("mongoose");
 const Thread = require("./models/Thread");
 
-app.use(express.static(path.join(__dirname,"public")));
+//app.use(express.static(path.join(__dirname,"public")));
 
 app.get("/", express.static("public"));//エントリポイントの設定
 
