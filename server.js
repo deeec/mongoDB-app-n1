@@ -3,12 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const Thread = require("./models/Thread");
 
+app.use(express.json());//
 app.use(express.static("public"));
 
 //app.get("/", express.static("public"));//エントリポイントの設定
 
 //mongoDBに接続
-mongoose.connect(process.env.MONGODB_URI ||
+mongoose.connect(
     "mongodb+srv://d-hori18:d-hori@cluster0.4v0ab4l.mongodb.net/?retryWrites=true&w=majority"
 ).
 then(() => console.log("db connected!"))

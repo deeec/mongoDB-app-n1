@@ -1,12 +1,11 @@
-// data fetching←投稿ゾーンのタグのID,DOM要素,変数(パラメータ)
+// data fetching
 const inputTextDOM = document.getElementById("inputTitle");
 const inputContentDOM = document.getElementById("inputContent");
+//formDomを追加する。
 const formDOM = document.querySelector(".form-section");
+const threadSectionDOM = document.querySelector(".thread-section");
 let inputText = "";
 let contentText = "";
-
-//formDomを追加する。DBから読み込んだデータを挿入する位置の指定DOM？的なやつ
-const threadSectionDOM = document.querySelector(".thread-section");
 
 //最初はThreadを全て読み込む
 const getAllThreads = async () => {
@@ -20,7 +19,6 @@ const getAllThreads = async () => {
       .map((thread) => {
         const { title, content } = thread;
         console.log(title);
-        //HTMLのひな型を返すことでスレッドが増える
         return `
       <div class="single-thread">
           <h3>${title}</h3>
@@ -55,7 +53,7 @@ formDOM.addEventListener("submit", async (e) => {
 
     try {
       console.log(inputText);
-      await axios.post("/ap1/v1/thread", {
+      await axios.post("/api/v1/thread", {
         title: inputText,
         content: contentText,
       });
